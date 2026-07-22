@@ -23,10 +23,20 @@ const SignupForm = () => {
       alert("Account created successfully!");
 
       navigate("/login");
-    } catch (err) {
-      console.error(err);
-      alert("Signup failed");
-    } finally {
+    } catch (err: any) {
+  console.error(err);
+
+  if (err.response) {
+    console.log("Status:", err.response.status);
+    console.log("Response:", err.response.data);
+    alert(JSON.stringify(err.response.data));
+  } else if (err.request) {
+    console.log("Request:", err.request);
+    alert("No response received from the server.");
+  } else {
+    alert(err.message);
+  }
+} finally {
       setLoading(false);
     }
   };
