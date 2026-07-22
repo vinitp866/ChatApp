@@ -11,7 +11,7 @@ export const getMessages = async (
 ) => {
   try {
     const currentUser = req.userId!;
-    const otherUser = req.params.userId;
+    const otherUser = req.params.userId as string;
 
     const messages = await getConversation(
       currentUser,
