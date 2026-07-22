@@ -9,6 +9,10 @@ import messageRoutes from "./routes/messages.routes.js";
 import userRoutes from "./routes/user.routes.js";
 import cors from "cors";
 const app = express();
+app.use((req, res, next) => {
+  console.log(`${req.method} ${req.url}`);
+  next();
+});
 app.use(
   cors({
     origin: process.env.CLIENT_URL,
