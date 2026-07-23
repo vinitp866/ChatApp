@@ -19,19 +19,21 @@ const MessageBubble = ({
       }`}
     >
       <div
-        className={`max-w-sm rounded-2xl px-4 py-2 shadow ${
+        className={`max-w-[85%] break-words rounded-2xl px-4 py-3 shadow-md transition-all sm:max-w-[75%] ${
           isMine
-            ? "bg-blue-600 text-white"
-            : "bg-gray-200 text-black"
+            ? "bg-gradient-to-r from-violet-600 to-fuchsia-500 text-white"
+            : "border border-slate-700 bg-slate-800 text-white"
         }`}
       >
-        <p>{message.content}</p>
+        <p className="whitespace-pre-wrap text-sm leading-6">
+          {message.content}
+        </p>
 
         <p
-          className={`mt-1 text-right text-xs ${
+          className={`mt-2 text-right text-[11px] ${
             isMine
-              ? "text-blue-100"
-              : "text-gray-500"
+              ? "text-violet-100"
+              : "text-slate-400"
           }`}
         >
           {new Date(message.createdAt).toLocaleTimeString([], {
