@@ -35,6 +35,7 @@ const ChatWindow = ({
     const fetchMessages = async () => {
       try {
         setLoading(true);
+
         const data = await getMessages(selectedUser.id);
         setMessages(data);
       } catch (err) {
@@ -84,20 +85,16 @@ const ChatWindow = ({
   const handleSendMessage = (content: string) => {
     if (!selectedUser) return;
 
-    getSocket()?.emit("send-message", {
+    const socket = getSocket();
+
+    socket?.emit("send-message", {
       receiverId: selectedUser.id,
       content,
     });
   };
 
   return (
-    <div className="relative flex flex-1 flex-col overflow-hidden bg-slate-950">
-      {/* Background glows */}
-      <div className="pointer-events-none absolute inset-0">
-        <div className="absolute -top-40 left-1/4 h-[500px] w-[500px] rounded-full bg-violet-600/10 blur-[150px]" />
-        <div className="absolute bottom-0 right-0 h-[400px] w-[400px] rounded-full bg-fuchsia-500/10 blur-[140px]" />
-      </div>
-
+    <div className="flex flex-1 flex-col bg-slate-950">
       <TopBar
         selectedUser={selectedUser}
         setSidebarOpen={setSidebarOpen}
@@ -106,13 +103,13 @@ const ChatWindow = ({
       {!selectedUser ? (
         <EmptyChat />
       ) : loading ? (
-        <div className="relative flex flex-1 items-center justify-center">
+        <div className="flex flex-1 items-center justify-center">
           <LoadingSpinner />
         </div>
       ) : (
         <>
-          <div className="relative flex-1 overflow-y-auto">
-            <div className="mx-auto flex w-full max-w-5xl flex-col gap-5 px-8 py-8">
+          <div className="flex-1 overflow-y-auto px-4 py-5 sm:px-8 md:px-12 lg:px-20 xl:px-24">
+            <div className="space-y-4">
               {messages.map((message) => (
                 <MessageBubble
                   key={message.id}
@@ -124,12 +121,8 @@ const ChatWindow = ({
             </div>
           </div>
 
-          <div className="relative border-t border-slate-800/70 bg-slate-900/70 px-8 py-5 backdrop-blur-xl">
-            <div className="mx-auto w-full max-w-5xl">
-              <MessageInput
-                onSend={handleSendMessage}
-              />
-            </div>
+          <div className="border-t border-slate-800 bg-slate-900 px-4 py-4 sm:px-8 md:px-12 lg:px-20 xl:px-24">
+            <MessageInput onSend={handleSendMessage} />
           </div>
         </>
       )}
