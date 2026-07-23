@@ -97,20 +97,20 @@ const ChatWindow = ({
   };
 
   return (
-    <div className="min-h-0 flex-1 overflow-y-auto p-4">
-  <div className="space-y-3">
-      <TopBar
-        selectedUser={selectedUser}
-        setSidebarOpen={setSidebarOpen}
-      />
+  <div className="flex min-h-0 flex-1 flex-col bg-slate-950">
+    <TopBar
+      selectedUser={selectedUser}
+      setSidebarOpen={setSidebarOpen}
+    />
 
-      {!selectedUser ? (
-        <EmptyChat />
-      ) : loading ? (
-        <LoadingSpinner />
-      ) : (
-        <>
-          <div className="flex-1 space-y-3 overflow-y-auto p-4">
+    {!selectedUser ? (
+      <EmptyChat />
+    ) : loading ? (
+      <LoadingSpinner />
+    ) : (
+      <>
+        <div className="min-h-0 flex-1 overflow-y-auto p-4">
+          <div className="space-y-3">
             {messages.map((message) => (
               <MessageBubble
                 key={message.id}
@@ -120,12 +120,13 @@ const ChatWindow = ({
 
             <div ref={messagesEndRef} />
           </div>
+        </div>
 
-          <MessageInput onSend={handleSendMessage} />
-        </>
-      )}
-    </div></div>
-  );
+        <MessageInput onSend={handleSendMessage} />
+      </>
+    )}
+  </div>
+);
 };
 
 export default ChatWindow;
