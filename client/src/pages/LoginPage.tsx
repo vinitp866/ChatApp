@@ -2,20 +2,24 @@ import LoginForm from "../components/auth/LoginForm";
 
 const LoginPage = () => {
   return (
-    <div className="relative flex min-h-screen items-center justify-center overflow-hidden bg-gradient-to-br from-slate-950 via-violet-950 to-slate-950 px-4">
+    <div className="relative flex min-h-screen items-center justify-center bg-gradient-to-br from-slate-950 via-violet-950 to-slate-950 px-4">
       {/* Background Glow */}
-      <div className="absolute left-0 top-0 h-80 w-80 rounded-full bg-violet-600/20 blur-3xl" />
-      <div className="absolute bottom-0 right-0 h-80 w-80 rounded-full bg-fuchsia-500/20 blur-3xl" />
+      <div className="absolute left-[-120px] top-[-120px] h-96 w-96 rounded-full bg-violet-600/20 blur-3xl" />
+
+      <div className="absolute bottom-[-120px] right-[-120px] h-96 w-96 rounded-full bg-fuchsia-500/20 blur-3xl" />
 
       <div className="relative flex w-full max-w-md flex-col items-center">
-        <h1 className="bg-gradient-to-r from-violet-400 via-fuchsia-400 to-pink-400 bg-clip-text text-center text-7xl font-black tracking-tight text-transparent md:text-8xl">
+        {/* Title */}
+        <h1 className="bg-gradient-to-r from-violet-300 via-fuchsia-400 to-pink-400 bg-clip-text pb-2 text-center text-7xl font-black leading-normal text-transparent drop-shadow-[0_0_25px_rgba(217,70,239,0.35)] md:text-8xl">
           Vayoza
         </h1>
 
-        <p className="mb-10 mt-3 text-center text-lg text-slate-400">
+        {/* Subtitle */}
+        <p className="mb-10 mt-2 text-center text-lg text-slate-400">
           Connect. Chat. Stay close.
         </p>
 
+        {/* Login Form */}
         <LoginForm />
       </div>
     </div>
