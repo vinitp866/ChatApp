@@ -49,10 +49,13 @@ const ChatWindow = ({
   }, [selectedUser]);
 
   useEffect(() => {
+  requestAnimationFrame(() => {
     messagesEndRef.current?.scrollIntoView({
       behavior: "smooth",
+      block: "end",
     });
-  }, [messages]);
+  });
+}, [messages]);
 
   useEffect(() => {
     const socket = getSocket();
