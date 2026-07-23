@@ -108,7 +108,7 @@ const ChatWindow = ({
         </div>
       ) : (
         <>
-          <div className="flex-1 overflow-y-auto px-4 py-5 sm:px-8 md:px-12 lg:px-20 xl:px-24">
+          <div className="flex-1 overflow-y-auto p-4">
             <div className="space-y-4">
               {messages.map((message) => (
                 <MessageBubble
@@ -121,7 +121,7 @@ const ChatWindow = ({
             </div>
           </div>
 
-          <div className="border-t border-slate-800 bg-slate-900 px-4 py-4 sm:px-8 md:px-12 lg:px-20 xl:px-24">
+          <div className="border-t border-slate-800 bg-slate-900 p-4">
             <MessageInput onSend={handleSendMessage} />
           </div>
         </>
