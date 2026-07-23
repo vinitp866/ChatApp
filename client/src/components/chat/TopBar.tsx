@@ -12,8 +12,7 @@ const TopBar = ({
   setSidebarOpen,
 }: TopBarProps) => {
   return (
-    <div className="mx-4 mt-4 flex h-16 items-center rounded-2xl border border-slate-800 bg-slate-900/80 px-4 shadow-xl backdrop-blur-xl">
-      {/* Mobile Menu */}
+    <div className="mx-4 flex h-16 shrink-0 items-center rounded-2xl border border-slate-800 bg-slate-900/80 px-4 shadow-xl backdrop-blur-xl">   {/* Mobile Menu */}
       <button
         onClick={() => setSidebarOpen(true)}
         className="mr-4 rounded-lg p-2 text-slate-300 transition hover:bg-slate-800 hover:text-white md:hidden"
