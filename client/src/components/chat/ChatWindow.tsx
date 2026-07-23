@@ -97,7 +97,8 @@ const ChatWindow = ({
   };
 
   return (
-    <div className="flex min-h-0 flex-1 flex-col bg-slate-950">
+    <div className="min-h-0 flex-1 overflow-y-auto p-4">
+  <div className="space-y-3">
       <TopBar
         selectedUser={selectedUser}
         setSidebarOpen={setSidebarOpen}
@@ -123,7 +124,7 @@ const ChatWindow = ({
           <MessageInput onSend={handleSendMessage} />
         </>
       )}
-    </div>
+    </div></div>
   );
 };
 

@@ -17,7 +17,7 @@ const HomePage = () => {
   }, []);
 
   return (
-    <div className="relative flex h-screen overflow-hidden bg-gray-100">
+    <div className="relative flex h-dvh overflow-hidden bg-slate-950">
       <Sidebar
         selectedUser={selectedUser}
         onSelectUser={(user) => {
@@ -28,7 +28,7 @@ const HomePage = () => {
         setSidebarOpen={setSidebarOpen}
       />
 
-      <div className="flex flex-1">
+      <div className="flex min-h-0 flex-1">
         <ChatWindow
           selectedUser={selectedUser}
           setSidebarOpen={setSidebarOpen}
