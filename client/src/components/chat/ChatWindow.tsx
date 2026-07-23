@@ -97,7 +97,7 @@ const ChatWindow = ({
   };
 
   return (
-    <div className="flex flex-1 flex-col bg-slate-950">
+    <div className="flex min-h-0 flex-1 flex-col bg-slate-950">
       <TopBar
         selectedUser={selectedUser}
         setSidebarOpen={setSidebarOpen}
