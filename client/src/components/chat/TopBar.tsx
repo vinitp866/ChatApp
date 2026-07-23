@@ -67,11 +67,11 @@ const TopBar = ({
           {/* Actions */}
           <div className="flex items-center gap-2">
             <button className="rounded-lg p-2 text-slate-400 transition hover:bg-slate-800 hover:text-white">
-              📞
+              
             </button>
 
             <button className="rounded-lg p-2 text-slate-400 transition hover:bg-slate-800 hover:text-white">
-              ⋮
+              
             </button>
           </div>
         </>
