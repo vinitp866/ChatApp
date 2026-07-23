@@ -94,7 +94,7 @@ const ChatWindow = ({
   };
 
   return (
-    <div className="flex flex-1 flex-col bg-gradient-to-br from-slate-950 via-slate-900 to-violet-950">
+    <div className="flex flex-1 flex-col bg-slate-950">
       <TopBar
         selectedUser={selectedUser}
         setSidebarOpen={setSidebarOpen}
@@ -103,22 +103,10 @@ const ChatWindow = ({
       {!selectedUser ? (
         <EmptyChat />
       ) : loading ? (
-        <div className="flex flex-1 items-center justify-center">
-          <LoadingSpinner />
-        </div>
+        <LoadingSpinner />
       ) : (
         <>
-          <div
-            className="
-              flex-1
-              overflow-y-auto
-              px-6
-              py-6
-              space-y-5
-
-              bg-[radial-gradient(circle_at_top,rgba(168,85,247,0.08),transparent_55%)]
-            "
-          >
+          <div className="flex-1 space-y-3 overflow-y-auto p-4">
             {messages.map((message) => (
               <MessageBubble
                 key={message.id}
@@ -129,11 +117,7 @@ const ChatWindow = ({
             <div ref={messagesEndRef} />
           </div>
 
-          <div className="border-t border-slate-800 bg-slate-900/70 px-6 py-5 backdrop-blur-xl">
-            <MessageInput
-              onSend={handleSendMessage}
-            />
-          </div>
+          <MessageInput onSend={handleSendMessage} />
         </>
       )}
     </div>
